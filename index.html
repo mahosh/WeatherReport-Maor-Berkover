@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather app</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        
     </head>
-    <body>
-        <nav>
-            <h1></h1>
-            <div class="pageSelection">
-
+    <body onload="loadCityWeather()">
+        <nav id="header" class="col-sm-12 col-md-12 col-lg-12">HEADER
+            <h1 class="col-lg-3 col-md-3 col-sm-3">Header</h1>
+            <div id="pageSelection">
+                <span id="mainPage">
+                    <img src="Home-icon.jpg">
+                </span>
+                <a id="favoritesPage" href="favoritesPage.html">
+                    <img src="Favorites-icon.jpg">
+                </a>
             </div>
         </nav>
-        <main>
-            <div class="searchBar">
-
+        <main class="col-sm-12 col-md-12 col-lg-12">MAIN CONTENT
+            <div id="searchBar" class="col-lg-2 col-md-4 col-sm-10">
+                <input id="searchCities" type="text" onClick="searchCity()">
             </div>
-            <div class="waetherReport">
-                <h2></h2>
-                <div class="addToFavorites"></div>
-                <div class="dayReport"></div>
-                <div class="weekReport"></div>
+            <div id="weatherReport" class="col-sm-12 col-md-12 col-lg-12">
+                <div id="row1" class="weatherRow">
+                    <h2 id="cityName">Tel Aviv</h2>
+                    <div id="addToFavorites">0</div>
+                </div>
+                <div id="row2" class="weatherRow">
+                    <div id="fehrenheitCelcius"></div>
+                    <div id="dayReport"></div>
+                </div>
+                <div id="row3" class="weatherRow">
+                    <div id="weekReport">
+                        <span id="day1" class="day"></span>
+                        <span id="day2" class="day"></span>
+                        <span id="day3" class="day"></span>
+                        <span id="day4" class="day"></span>
+                        <span id="day5" class="day"></span>
+                    </div>
+                </div>
 
             </div>
         </main>
-        <footer>
+        <footer id="footer" class="col-sm-12 col-md-12 col-lg-12">FOOTER
 
         </footer>    
     </body>
