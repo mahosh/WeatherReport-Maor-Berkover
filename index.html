@@ -8,7 +8,7 @@
         <script src="script.js"></script>
         
     </head>
-    <body onload="loadCityWeather()">
+    <body onload="autocomplete(document.getElementById('searchCities'), namesX)">
         <nav id="header" class="col-sm-12 col-md-12 col-lg-12">HEADER
             <h1 class="col-lg-3 col-md-3 col-sm-3">Header</h1>
             <div id="pageSelection">
@@ -21,9 +21,12 @@
             </div>
         </nav>
         <main class="col-sm-12 col-md-12 col-lg-12">MAIN CONTENT
-            <div id="searchBar" class="col-lg-2 col-md-4 col-sm-10">
-                <input id="searchCities" type="text" onClick="searchCity()">
-            </div>
+            <form autocomplete="off">
+                <div id="searchBar" class="col-lg-2 col-md-4 col-sm-10 autocomplete">
+                    <input id="searchCities" type="text" name="myCity" placeholder="City">
+                </div>
+                <input type="submit">
+            </form>
             <div id="weatherReport" class="col-sm-12 col-md-12 col-lg-12">
                 <div id="row1" class="weatherRow">
                     <h2 id="cityName">Tel Aviv</h2>
