@@ -42,15 +42,27 @@
   .col-lg-11 {width: 91.66%;}
   .col-lg-12 {width: 100%;}
   #footer {height: 120px;}
+  #row1 {height: 400px;margin-top: 30px;color:white;}
 }
-div, footer, nav, span{
-    border: 1px solid black;
+#cityBlock {
+  position: relative;
 }
 #searchBar {
-    margin: 20px auto;
+    margin-left: auto;
+    margin: 20px;
 }
 #searchCities {
-    width: 100%;
+  border-radius: 50px;
+  width: 75%;
+  margin-right: 20px;
+}
+#sendButton{
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+}
+#searchBar *{
+  display: inline-block;
 }
 #footer {
     position: absolute;
@@ -89,15 +101,22 @@ h1 {
     width: 15%;
     min-height: 50px;
     display: inline-block;
+    background-color: white;
 }
 #fehrenheitCelcius {
-    width: 15px;
+    width: 50px;
     height: 15px;
+    display: block;
 }
-#row1 *{
+#cityBlock *{
 display: inline-block;
 }
-
+body.sunny {
+  background-color: #2f9ace;
+}
+body.sunny #row1 {
+  background-image: url(Assests/Backgrounds/SunnyBackground.jpg);
+}
 
 
 /*the container must be positioned relative:*/

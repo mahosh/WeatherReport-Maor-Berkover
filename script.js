@@ -1,15 +1,26 @@
-// setting a new session
-if(!window.localStorage.favoriteCities) {
+
+function reboot() {
+  // setting a new session
+  centerItems();
+  if(!window.localStorage.favoriteCities) {
     window.localStorage.setItem('favoriteCities', '{}');
+    window.localStorage.setItem('currentCity', 'Tel Aviv')
+  }
+  autocomplete(document.getElementById('searchCities'), namesX);
 }
-
-
+function centerItems(){
+  let leftPositionOfSearchBar = (document.body.clientWidth - document.getElementById('searchBar').offsetWidth)/2;
+  document.getElementById('searchBar').style.left=leftPositionOfSearchBar +"px";
+  let leftPositionOfCityName = (document.getElementById('row1').offsetWidth - document.getElementById('cityBlock').offsetWidth)/2;
+  document.getElementById('cityBlock').style.left=leftPositionOfCityName +"px";
+}
 function favoritesButton(){
 
 }
 function fehrenheitCelciusButton() {
 
 }
+
 
 const citiesList = [
     {   
@@ -9302,6 +9313,12 @@ const namesX = citiesList.map(city => {
     
     return city.LocalizedName;
 });
+function changeCity(city) {
+  if(city != window.localStorage.currentCity){
+    window.localStorage.setItem('currentCity', city);
+    document.getElementById('cityName').innerHTML = city;
+  }
+}
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,

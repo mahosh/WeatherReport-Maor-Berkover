@@ -8,7 +8,7 @@
         <script src="script.js"></script>
         
     </head>
-    <body onload="autocomplete(document.getElementById('searchCities'), namesX)">
+    <body class="sunny" onload="reboot()">
         <nav id="header" class="col-sm-12 col-md-12 col-lg-12">HEADER
             <h1 class="col-lg-3 col-md-3 col-sm-3">Header</h1>
             <div id="pageSelection">
@@ -22,23 +22,28 @@
         </nav>
         <main class="col-sm-12 col-md-12 col-lg-12">MAIN CONTENT
             <form autocomplete="off">
-                <div id="searchBar" class="col-lg-2 col-md-4 col-sm-10 autocomplete">
+                <div id="searchBar" class="col-lg-4 col-md-4 col-sm-10 autocomplete">
                     <input id="searchCities" type="text" name="myCity" placeholder="City">
+                    <button id="sendButton" onclick="changeCity(document.getElementById('searchCities').value)">Send</button>
                 </div>
-                <input type="submit">
+                
             </form>
             <div id="weatherReport" class="col-sm-12 col-md-12 col-lg-12">
                 <div id="row1" class="weatherRow">
-                    <h2 id="cityName">Tel Aviv</h2>
-                    <div id="addToFavorites">0</div>
-                    <div id="fehrenheitCelcius">1</div>
+                    <div id="fehrenheitCelcius">°C|°F</div>
+                    <div id="cityBlock">
+                        <h2 id="cityName">Tel Aviv</h2>
+                        <div id="addToFavorites">
+                            <img id="favoriteCity" src="Assests/Icons/favoriteEmptyIcon.png">
+                        </div>
+                    </div>
                 </div>
                 <div id="row2" class="weatherRow">
                     <div id="dayReport"></div>
                 </div>
                 <div id="row3" class="weatherRow">
                     <div id="weekReport">
-                        <div id="day1" class="day active"></div>
+                        <div id="day1" class="day"></div>
                         <div id="day2" class="day"></div>
                         <div id="day3" class="day"></div>
                         <div id="day4" class="day"></div>
