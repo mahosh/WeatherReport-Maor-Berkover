@@ -11,7 +11,7 @@ function reboot() {
 function centerItems(){
   let leftPositionOfSearchBar = (document.body.clientWidth - document.getElementById('searchBar').offsetWidth)/2;
   document.getElementById('searchBar').style.left=leftPositionOfSearchBar +"px";
-  let leftPositionOfCityName = (document.getElementById('row1').offsetWidth - document.getElementById('cityBlock').offsetWidth)/2;
+  let leftPositionOfCityName = (document.getElementById('row1').offsetWidth - document.getElementById('cityName').offsetWidth)/2;
   document.getElementById('cityBlock').style.left=leftPositionOfCityName +"px";
 }
 function favoritesButton(){
