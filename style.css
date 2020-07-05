@@ -11,6 +11,10 @@
 .col-sm-11 {width: 91.66%;}
 .col-sm-12 {width: 100%;}
 #footer {height: 90px;}
+body {margin: 0;}
+body.sunny {background-image: url(Assests/Backgrounds/SunnyBackground.jpg);}
+h1 {display: inline-block;margin-left: 5%;}
+#pageSelection {margin-left: auto;margin-right: 5%;}
 
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .col-md-1 {width: 8.33%;}
@@ -43,6 +47,24 @@
   .col-lg-12 {width: 100%;}
   #footer {height: 120px;}
   #row1 {height: 600px;margin-top: 30px;color:white;}
+  #fehrenheitCelcius {width: 50px; height: 15px; position: absolute;
+    left: 0px; top: 0px;}
+  #addToFavorites {position: absolute;right: 0px;top: 0px;}
+  #addToFavorites img{width: 50px;height: auto;}
+  #cityBlock {position: absolute;top: 60px;}
+  #cityName{text-align: center;font-size: 90px;margin: 0;}
+  #temperture {text-align: center;font-size: 35px;margin: 10px 0 20px 0;}
+  #cityBlock span{font-size: 20px;}
+  #currentDate {float: right;}
+  #weekReport {position: absolute;bottom: 20px;display: flex;
+    justify-content: center;width: 100%;}
+  .day {margin: 20px auto;width: 15%;min-height: 50px;display: inline-block;
+      background-color: white;color: black;text-align: center;font-size: 25px;}
+  .day p {margin: 5px 0 10px 0;}
+  .day img {width: 65px;height: auto;}
+  body.sunny {background-color: #2f9ace;}
+  body.sunny #row1 {background-image: url(Assests/Backgrounds/SunnyBackground.jpg);}
+  h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
 }
 #row1 {
   position: relative;
@@ -60,16 +82,15 @@
   top: 0px;
 }
 #addToFavorites img{
-  width: 50px;
+  width: 20px;
   height: auto;
 }
 #cityBlock {
-  position: absolute;
   top: 60px;
 }
 #cityName{
   text-align: center;
-  font-size: 90px;
+  font-size: 70px;
   margin: 0;
 }
 #temperture {
@@ -84,11 +105,25 @@
   float: right;
 }
 #weekReport {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
   width: 100%;
+}
+.day {
+  margin: 0;
+  width: 100%;
+  min-height: 50px;
+  display: block;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-size: 25px;
+
+}
+.day p {
+margin: 5px 0 10px 0;
+}
+.day img {
+width: 65px;
+height: auto;
 }
 #searchBar {
     margin-left: auto;
@@ -117,11 +152,7 @@ img {
 #header {
     display: flex;
 }
-h1 {
-    display: inline-block;
-    margin-right: 60%;
-    margin-left: 5%;
-}
+
 #pageSelection {
     align-self: center;
     display: inline-block;
@@ -134,19 +165,8 @@ h1 {
     width: 100%;
     height: 120px;
 }
-.day {
-    margin: 20px auto;
-    width: 15%;
-    min-height: 50px;
-    display: inline-block;
-    background-color: white;
-}
-body.sunny {
-  background-color: #2f9ace;
-}
-body.sunny #row1 {
-  background-image: url(Assests/Backgrounds/SunnyBackground.jpg);
-}
+
+
 
 
 /*the container must be positioned relative:*/
