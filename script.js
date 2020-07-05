@@ -2,9 +2,11 @@
 function reboot() {
   // setting a new session
   centerItems();
-  if(!window.localStorage.favoriteCities) {
+  if(!window.localStorage.currentCity) {
     window.localStorage.setItem('favoriteCities', '{}');
     window.localStorage.setItem('currentCity', 'Tel Aviv')
+  } else {
+    document.getElementById('cityName').innerHTML = window.localStorage.currentCity;
   }
   autocomplete(document.getElementById('searchCities'), namesX);
 }
@@ -9353,6 +9355,7 @@ function autocomplete(inp, arr) {
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
+              changeCity(document.getElementById('searchCities').value);
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();

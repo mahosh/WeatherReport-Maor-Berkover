@@ -108,22 +108,21 @@ h1 {display: inline-block;margin-left: 5%;}
   width: 100%;
 }
 .day {
-  margin: 0;
+  margin: 0 0 5px 0;
   width: 100%;
   min-height: 50px;
-  display: block;
-  background-color: white;
+  display: flex;
   color: black;
   text-align: center;
   font-size: 25px;
 
 }
 .day p {
-margin: 5px 0 10px 0;
+  flex-grow: 1;
 }
 .day img {
-width: 65px;
-height: auto;
+  flex-grow: 1;
+  height: auto;
 }
 #searchBar {
     margin-left: auto;
@@ -133,11 +132,6 @@ height: auto;
   border-radius: 50px;
   width: 75%;
   margin-right: 20px;
-}
-#sendButton{
-    height: 40px;
-    border-radius: 50px;
-    border: none;
 }
 #searchBar *{
   display: inline-block;
