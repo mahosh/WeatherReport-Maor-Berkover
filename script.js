@@ -1,12 +1,23 @@
-
+let fehrenheit = true; 
+let favList = ['London'];
 function reboot() {
   // setting a new session
   centerItems();
   if(!window.localStorage.currentCity) {
-    window.localStorage.setItem('favoriteCities', '{}');
     window.localStorage.setItem('currentCity', 'Tel Aviv')
   } else {
     document.getElementById('cityName').innerHTML = window.localStorage.currentCity;
+  }
+  if(window.localStorage.favoriteCities){
+    favList = JSON.parse(window.localStorage.getItem("favoriteCities"));
+    if(window.localStorage.currentCity){
+      for(i = 0 ; i<favList.length ; i++){
+        if(favList[i] == window.localStorage.currentCity){
+          i=favList.length;
+          document.getElementById('favoriteCity').src = "Assests/Icons/favoriteFullIcon.png";
+        }
+      }
+    }
   }
   autocomplete(document.getElementById('searchCities'), namesX);
 }
@@ -17,10 +28,38 @@ function centerItems(){
   document.getElementById('cityBlock').style.left=leftPositionOfCityName +"px";
 }
 function favoritesButton(){
-
+  
 }
-function fehrenheitCelciusButton() {
 
+let fehrenheitTemp = 50;
+function fehrenheitCelciusButton() {
+    if(document.getElementById('fehrenheitButton').className == 'active'){
+      document.getElementById('fehrenheitButton').className = 'disable';
+      document.getElementById('celciusButton').className = 'active';
+      document.getElementById('celciusButton').disabled = false;
+      document.getElementById('fehrenheitButton').disabled = true;
+      let x = document.getElementsByClassName('showCelcius');
+      let y = document.getElementsByClassName('showFehrenheit');
+      for(i=0 ; i<x.length ; i++) {
+        x[i].className = 'showCelcius';  
+      }
+      for(i=0 ; i<y.length ; i++) {
+        y[i].className = 'showFehrenheit active';  
+      }
+    } else {
+      document.getElementById('fehrenheitButton').className = 'active';
+      document.getElementById('celciusButton').className = 'disable';
+      document.getElementById('celciusButton').disabled = true;
+      document.getElementById('fehrenheitButton').disabled = false;
+      let x = document.getElementsByClassName('showCelcius');
+      let y = document.getElementsByClassName('showFehrenheit');
+      for(i=0 ; i<x.length ; i++) {
+        x[i].className = 'showCelcius active';  
+      }
+      for(i=0 ; i<y.length ; i++) {
+        y[i].className = 'showFehrenheit';  
+      }
+    }
 }
 
 
@@ -9312,13 +9351,13 @@ const citiesList = [
 ]
 
 const namesX = citiesList.map(city => {
-    
     return city.LocalizedName;
 });
 function changeCity(city) {
   if(city != window.localStorage.currentCity){
     window.localStorage.setItem('currentCity', city);
     document.getElementById('cityName').innerHTML = city;
+    
   }
 }
 

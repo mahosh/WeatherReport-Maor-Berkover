@@ -30,6 +30,8 @@ h1 {display: inline-block;margin-left: 5%;}
   .col-md-11 {width: 91.66%;}
   .col-md-12 {width: 100%;}
   #footer {height: 120px;}
+  #fehrenheitCelcius {width: 85px; height: 15px; position: absolute;
+    left: 0px; top: 0px;}
 }
 
 @media screen and (min-width: 900px) {
@@ -47,8 +49,9 @@ h1 {display: inline-block;margin-left: 5%;}
   .col-lg-12 {width: 100%;}
   #footer {height: 120px;}
   #row1 {height: 600px;margin-top: 30px;color:white;}
-  #fehrenheitCelcius {width: 50px; height: 15px; position: absolute;
+  #fehrenheitCelcius {width: 85px; height: 15px; position: absolute;
     left: 0px; top: 0px;}
+  #fehrenheitCelcius button {background: none;}
   #addToFavorites {position: absolute;right: 0px;top: 0px;}
   #addToFavorites img{width: 50px;height: auto;}
   #cityBlock {position: absolute;top: 60px;}
@@ -65,6 +68,12 @@ h1 {display: inline-block;margin-left: 5%;}
   body.sunny {background-color: #2f9ace;}
   body.sunny #row1 {background-image: url(Assests/Backgrounds/SunnyBackground.jpg);}
   h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
+}
+.showCelcius, .showFehrenheit {
+  display: none;
+}
+.showCelcius.active, .showFehrenheit.active {
+  display: inline;
 }
 #row1 {
   position: relative;
@@ -121,7 +130,7 @@ h1 {display: inline-block;margin-left: 5%;}
   flex-grow: 1;
 }
 .day img {
-  flex-grow: 1;
+  width: 40px;
   height: auto;
 }
 #searchBar {
@@ -131,7 +140,6 @@ h1 {display: inline-block;margin-left: 5%;}
 #searchCities {
   border-radius: 50px;
   width: 75%;
-  margin-right: 20px;
 }
 #searchBar *{
   display: inline-block;

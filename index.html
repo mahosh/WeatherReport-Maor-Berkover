@@ -24,12 +24,15 @@
             <form autocomplete="off">
                 <div id="searchBar" class="col-lg-4 col-md-4 col-sm-10 autocomplete">
                     <input id="searchCities" type="text" name="myCity" placeholder="City">
-                </div>
-                
+                </div> 
             </form>
             <div id="weatherReport" class="col-sm-12 col-md-12 col-lg-12">
                 <div id="row1" class="weatherRow">
-                    <div id="fehrenheitCelcius">°C|°F</div>
+                    <div id="fehrenheitCelcius">
+                        <button id="celciusButton" onclick="fehrenheitCelciusButton()" disabled>°C</button>
+                        <span>|</span>
+                        <button id="fehrenheitButton" class="active" onclick="fehrenheitCelciusButton()">°F</button>
+                    </div>
                     <div id="addToFavorites">
                         <img id="favoriteCity" src="Assests/Icons/favoriteEmptyIcon.png">
                     </div>
@@ -42,28 +45,38 @@
                     <div id="weekReport">
                         <div id="day1" class="day">
                             <p class="dayOfTheWeek">Day</p>
-                            <p class="tempertureOfDay">Temp</p>
-                            <img src="Assests/Icons/Sunny.png">
+                            <p class="tempertureOfDay">50</p>
+                            <span class="showFehrenheit active">°F</span>
+                            <span class="showCelcius">°C</span>
+                            <p><img src="Assests/Icons/Sunny.png"></p>
                         </div>
                         <div id="day2" class="day">
                             <p class="dayOfTheWeek">Day</p>
-                            <p class="tempertureOfDay">Temp</p>
-                            <img src="Assests/Icons/Sunny.png">
+                            <p class="tempertureOfDay">50</p>
+                            <span class="showFehrenheit active">°F</span>
+                            <span class="showCelcius">°C</span>
+                            <p><img src="Assests/Icons/Sunny.png"></p>
                         </div>
                         <div id="day3" class="day">
                             <p class="dayOfTheWeek">Day</p>
-                            <p class="tempertureOfDay">Temp</p>
-                            <img src="Assests/Icons/Sunny.png">
+                            <p class="tempertureOfDay">50</p>
+                            <span class="showFehrenheit active">°F</span>
+                            <span class="showCelcius">°C</span>
+                            <p><img src="Assests/Icons/Sunny.png"></p>
                         </div>
                         <div id="day4" class="day">
                             <p class="dayOfTheWeek">Day</p>
-                            <p class="tempertureOfDay">Temp</p>
-                            <img src="Assests/Icons/Sunny.png">
+                            <p class="tempertureOfDay">50</p>
+                            <span class="showFehrenheit active">°F</span>
+                            <span class="showCelcius">°C</span>
+                            <p><img src="Assests/Icons/Sunny.png"></p>
                         </div>
                         <div id="day5" class="day">
                             <p class="dayOfTheWeek">Day</p>
-                            <p class="tempertureOfDay">Temp</p>
-                            <img src="Assests/Icons/Sunny.png">
+                            <p class="tempertureOfDay">50</p>
+                            <span class="showFehrenheit active">°F</span>
+                            <span class="showCelcius">°C</span>
+                            <p><img src="Assests/Icons/Sunny.png"></p>
                         </div>
                     </div>
                 </div>
