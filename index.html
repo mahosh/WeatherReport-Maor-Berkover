@@ -33,8 +33,9 @@
                         <span>|</span>
                         <button id="fehrenheitButton" class="active" onclick="fehrenheitCelciusButton()">°F</button>
                     </div>
-                    <div id="addToFavorites">
-                        <img id="favoriteCity" src="Assests/Icons/favoriteEmptyIcon.png">
+                    <div id="addToFavorites" onclick="favoritesButton()">
+                        <img id="notAFavoriteCity" src="Assests/Icons/favoriteEmptyIcon.png" class="active">
+                        <img id="aFavoriteCity" src="Assests/Icons/favoriteFullIcon.png">
                     </div>
                     <div id="cityBlock">
                         <p id="cityName">Tel Aviv</p>

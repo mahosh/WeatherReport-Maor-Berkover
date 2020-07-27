@@ -1,11 +1,12 @@
 let fehrenheit = true; 
-let favList = ['London'];
+let favList = [];
+let currentCity = "Tel Aviv";
+
 function reboot() {
   // setting a new session
   centerItems();
-  if(!window.localStorage.currentCity) {
-    window.localStorage.setItem('currentCity', 'Tel Aviv')
-  } else {
+  if(window.localStorage.currentCity) {
+    currentCity = window.localStorage.currentCity;
     document.getElementById('cityName').innerHTML = window.localStorage.currentCity;
   }
   if(window.localStorage.favoriteCities){
@@ -14,7 +15,8 @@ function reboot() {
       for(i = 0 ; i<favList.length ; i++){
         if(favList[i] == window.localStorage.currentCity){
           i=favList.length;
-          document.getElementById('favoriteCity').src = "Assests/Icons/favoriteFullIcon.png";
+          document.getElementById('notAFavoriteCity').className = '';
+          document.getElementById('aFavoriteCity').className = 'active';
         }
       }
     }
@@ -28,7 +30,15 @@ function centerItems(){
   document.getElementById('cityBlock').style.left=leftPositionOfCityName +"px";
 }
 function favoritesButton(){
-  
+  if(document.getElementById('notAFavoriteCity').className == 'active') {
+    document.getElementById('notAFavoriteCity').className = '';
+    document.getElementById('aFavoriteCity').className = 'active';
+    favList.push(currentCity);
+  } else {
+    document.getElementById('notAFavoriteCity').className = 'active';
+    document.getElementById('aFavoriteCity').className = '';
+    favList.splice(favList.indexOf("currentCity"), 1);
+  }
 }
 
 let fehrenheitTemp = 50;
@@ -9354,10 +9364,22 @@ const namesX = citiesList.map(city => {
     return city.LocalizedName;
 });
 function changeCity(city) {
-  if(city != window.localStorage.currentCity){
-    window.localStorage.setItem('currentCity', city);
+  if(city != currentCity){
+    currentCity = city; 
     document.getElementById('cityName').innerHTML = city;
-    
+  }
+  
+  let favCity = false;
+  for(i=0 ; i<favList.length ; i++){
+    if (city == favList[i]){
+      document.getElementById('notAFavoriteCity').className = '';
+      document.getElementById('aFavoriteCity').className = 'active';
+      favCity = true;
+    }
+  }
+  if (!favCity) {
+    document.getElementById('notAFavoriteCity').className = 'active';
+    document.getElementById('aFavoriteCity').className = '';
   }
 }
 

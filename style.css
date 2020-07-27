@@ -69,6 +69,12 @@ h1 {display: inline-block;margin-left: 5%;}
   body.sunny #row1 {background-image: url(Assests/Backgrounds/SunnyBackground.jpg);}
   h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
 }
+#notAFavoriteCity, #aFavoriteCity {
+  display: none;
+}
+#notAFavoriteCity.active, #aFavoriteCity.active {
+  display: inline-block;
+}
 .showCelcius, .showFehrenheit {
   display: none;
 }
