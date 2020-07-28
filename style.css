@@ -10,7 +10,6 @@
 .col-sm-10 {width: 83.33%;}
 .col-sm-11 {width: 91.66%;}
 .col-sm-12 {width: 100%;}
-#footer {height: 90px;}
 body {margin: 0;}
 body.sunny {background-image: url(Assests/Backgrounds/SunnyBackground.jpg);}
 h1 {display: inline-block;margin-left: 5%;}
@@ -29,7 +28,6 @@ h1 {display: inline-block;margin-left: 5%;}
   .col-md-10 {width: 83.33%;}
   .col-md-11 {width: 91.66%;}
   .col-md-12 {width: 100%;}
-  #footer {height: 120px;}
   #fehrenheitCelcius {width: 85px; height: 15px; position: absolute;
     left: 0px; top: 0px;}
 }
@@ -47,7 +45,6 @@ h1 {display: inline-block;margin-left: 5%;}
   .col-lg-10 {width: 83.33%;}
   .col-lg-11 {width: 91.66%;}
   .col-lg-12 {width: 100%;}
-  #footer {height: 120px;}
   #row1 {height: 600px;margin-top: 30px;color:white;}
   #fehrenheitCelcius {width: 85px; height: 15px; position: absolute;
     left: 0px; top: 0px;}
@@ -149,10 +146,6 @@ h1 {display: inline-block;margin-left: 5%;}
 }
 #searchBar *{
   display: inline-block;
-}
-#footer {
-    position: absolute;
-    bottom: 0px;
 }
 img {
     width: 20px;
