@@ -1,3 +1,4 @@
+@media screen and (max-width: 600px){
 .col-sm-1 {width: 8.33%;}
 .col-sm-2 {width: 16.66%;}
 .col-sm-3 {width: 25%;}
@@ -14,7 +15,19 @@ body {margin: 0;}
 body.sunny {background-image: url(Assests/Backgrounds/SunnyBackground.jpg);}
 h1 {display: inline-block;margin-left: 5%;}
 #pageSelection {margin-left: auto;margin-right: 5%;}
-
+#fehrenheitCelcius {width: 50px;height: 15px;position: absolute;left: 0px;top: 0px;}
+#addToFavorites {position: absolute;right: 0px;top: 0px;}
+#addToFavorites img{width: 20px;height: auto;}
+#cityBlock {top: 60px;}
+#cityName{text-align: center;font-size: 70px;margin: 0;}
+#temperture {text-align: center;font-size: 35px;margin: 10px 0 20px 0;}
+#cityBlock span{font-size: 20px;}
+#currentDate {float: right;}
+#weekReport {width: 100%;}
+.day {margin: 0 0 5px 0;width: 100%;min-height: 50px;display: flex;color: black;text-align: center;font-size: 25px;}
+.day p {flex-grow: 1;}
+.day img {width: 40px;height: auto;}
+}
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .col-md-1 {width: 8.33%;}
   .col-md-2 {width: 16.66%;}
@@ -62,8 +75,18 @@ h1 {display: inline-block;margin-left: 5%;}
       background-color: white;color: black;text-align: center;font-size: 25px;}
   .day p {margin: 5px 0 10px 0;}
   .day img {width: 65px;height: auto;}
-  body.sunny {background-color: #2f9ace;}
-  body.sunny #row1 {background-image: url(Assests/Backgrounds/SunnyBackground.jpg);}
+  .day .dayOfTheWeek {margin-top: 15px}
+  .tempertureOfDay {display: inline-block;}
+  body.sunny {background: url(Assests/Backgrounds/SunnyBackground.jpg) no-repeat center center fixed;
+    background-size: cover;}
+  body.partiallyCloudy {background: url(Assests/Backgrounds/PartiallyCloudyBackground.jpg) no-repeat center center fixed;
+    background-size: cover;}
+  body.cloudy {background: url(Assests/Backgrounds/CloudyBackground.jpg) no-repeat center center fixed;
+    background-size: cover;}
+  body.rainy {background: url(Assests/Backgrounds/RainyBackground.jpg) no-repeat center center fixed;
+    background-size: cover;}
+  body.snowy {background: url(Assests/Backgrounds/SnowyBackground.jpg) no-repeat center center fixed;
+    background-size: cover;}    
   h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
 }
 #notAFavoriteCity, #aFavoriteCity {
@@ -81,61 +104,7 @@ h1 {display: inline-block;margin-left: 5%;}
 #row1 {
   position: relative;
 }
-#fehrenheitCelcius {
-  width: 50px;
-  height: 15px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-}
-#addToFavorites {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-#addToFavorites img{
-  width: 20px;
-  height: auto;
-}
-#cityBlock {
-  top: 60px;
-}
-#cityName{
-  text-align: center;
-  font-size: 70px;
-  margin: 0;
-}
-#temperture {
-  text-align: center;
-  font-size: 35px;
-  margin: 10px 0 20px   0;
-}
-#cityBlock span{
-  font-size: 20px;
-}
-#currentDate {
-  float: right;
-}
-#weekReport {
-  width: 100%;
-}
-.day {
-  margin: 0 0 5px 0;
-  width: 100%;
-  min-height: 50px;
-  display: flex;
-  color: black;
-  text-align: center;
-  font-size: 25px;
 
-}
-.day p {
-  flex-grow: 1;
-}
-.day img {
-  width: 40px;
-  height: auto;
-}
 #searchBar {
     margin-left: auto;
     margin: 20px;
@@ -161,6 +130,7 @@ img {
 #weatherReport {
     width: 80%;
     margin: 0 auto;
+    background: rgb(255,255,255,0.1);
 }
 #dayReport {
     width: 100%;

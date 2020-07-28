@@ -8,7 +8,7 @@
         <script src="script.js"></script>
         
     </head>
-    <body class="sunny" onload="reboot()">
+    <body class="snowy" onload="reboot()">
         <nav id="header" class="col-sm-12 col-md-12 col-lg-12">
             <h1 class="col-lg-3 col-md-3 col-sm-3">Header</h1>
             <div id="pageSelection">
@@ -29,9 +29,9 @@
             <div id="weatherReport" class="col-sm-12 col-md-12 col-lg-12">
                 <div id="row1" class="weatherRow">
                     <div id="fehrenheitCelcius">
-                        <button id="celciusButton" onclick="fehrenheitCelciusButton()" disabled>°C</button>
+                        <button id="celciusButton" class="active" onclick="fehrenheitCelciusButton()">°C</button>
                         <span>|</span>
-                        <button id="fehrenheitButton" class="active" onclick="fehrenheitCelciusButton()">°F</button>
+                        <button id="fehrenheitButton"  onclick="fehrenheitCelciusButton()" disabled>°F</button>
                     </div>
                     <div id="addToFavorites" onclick="favoritesButton()">
                         <img id="notAFavoriteCity" src="Assests/Icons/favoriteEmptyIcon.png" class="active">
@@ -45,39 +45,32 @@
                     </div>
                     <div id="weekReport">
                         <div id="day1" class="day">
-                            <p class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay1" class="dayOfTheWeek">Day</p>
                             <p class="tempertureOfDay">50</p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
                             <p><img src="Assests/Icons/Sunny.png"></p>
                         </div>
                         <div id="day2" class="day">
-                            <p class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay2" class="dayOfTheWeek">Day</p>
                             <p class="tempertureOfDay">50</p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/Sunny.png"></p>
+                            <p><img src="Assests/Icons/PartialyCloudy.png"></p>
                         </div>
                         <div id="day3" class="day">
-                            <p class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay3" class="dayOfTheWeek">Day</p>
                             <p class="tempertureOfDay">50</p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/Sunny.png"></p>
+                            <p><img src="Assests/Icons/Cloudy.png"></p>
                         </div>
                         <div id="day4" class="day">
-                            <p class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay4" class="dayOfTheWeek">Day</p>
                             <p class="tempertureOfDay">50</p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/Sunny.png"></p>
-                        </div>
-                        <div id="day5" class="day">
-                            <p class="dayOfTheWeek">Day</p>
-                            <p class="tempertureOfDay">50</p>
-                            <span class="showFehrenheit active">°F</span>
-                            <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/Sunny.png"></p>
+                            <p><img src="Assests/Icons/Rain.png"></p>
                         </div>
                     </div>
                 </div>

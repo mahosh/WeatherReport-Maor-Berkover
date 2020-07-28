@@ -1,10 +1,26 @@
 let fehrenheit = true; 
 let favList = [];
 let currentCity = "Tel Aviv";
+const currentDate = new Date();
+let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+const today = weekDays[currentDate.getDay()];
 
 function reboot() {
   // setting a new session
   centerItems();
+  //setting the dates in all relevant places
+  document.getElementById('currentDate').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  document.getElementById('currentDay').innerHTML = today;
+  currentDate.setDate(currentDate.getDate() + 1);
+  document.getElementById('dateOfDay1').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  currentDate.setDate(currentDate.getDate() + 1);
+  document.getElementById('dateOfDay2').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  currentDate.setDate(currentDate.getDate() + 1);
+  document.getElementById('dateOfDay3').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  currentDate.setDate(currentDate.getDate() + 1);
+  document.getElementById('dateOfDay4').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  
   if(window.localStorage.currentCity) {
     currentCity = window.localStorage.currentCity;
     document.getElementById('cityName').innerHTML = window.localStorage.currentCity;
