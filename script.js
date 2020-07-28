@@ -1,6 +1,7 @@
 let fehrenheit = true; 
 let favList = [];
 let currentCity = "Tel Aviv";
+let currentKey = 215854;
 const currentDate = new Date();
 let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -39,6 +40,7 @@ function reboot() {
   }
   //running the 
   autocomplete(document.getElementById('searchCities'));
+  getTemperature(currentKey);
 }
 function centerItems(){
   let leftPositionOfSearchBar = (document.body.clientWidth - document.getElementById('searchBar').offsetWidth)/2;
@@ -58,7 +60,6 @@ function favoritesButton(){
   }
 }
 
-let fehrenheitTemp = 50;
 function fehrenheitCelciusButton() {
     if(document.getElementById('fehrenheitButton').className == 'active'){
       document.getElementById('fehrenheitButton').className = 'disable';
@@ -73,6 +74,11 @@ function fehrenheitCelciusButton() {
       for(i=0 ; i<y.length ; i++) {
         y[i].className = 'showFehrenheit active';  
       }
+      document.getElementById('temperture').innerHTML = fehrenheitTemps[0];
+      document.getElementById('day1Temp').innerHTML = fehrenheitTemps[1];
+      document.getElementById('day2Temp').innerHTML = fehrenheitTemps[2];
+      document.getElementById('day3Temp').innerHTML = fehrenheitTemps[3];
+      document.getElementById('day4Temp').innerHTML = fehrenheitTemps[4];
     } else {
       document.getElementById('fehrenheitButton').className = 'active';
       document.getElementById('celciusButton').className = 'disable';
@@ -86,14 +92,40 @@ function fehrenheitCelciusButton() {
       for(i=0 ; i<y.length ; i++) {
         y[i].className = 'showFehrenheit';  
       }
+      document.getElementById('temperture').innerHTML = celciusTemps[0];
+      document.getElementById('day1Temp').innerHTML = celciusTemps[1];
+      document.getElementById('day2Temp').innerHTML = celciusTemps[2];
+      document.getElementById('day3Temp').innerHTML = celciusTemps[3];
+      document.getElementById('day4Temp').innerHTML = celciusTemps[4];
     }
 }
 
-function changeCity(city) {
+let fehrenheitTemps = [];
+let celciusTemps = [];
+
+function getTemperature(key){
+  let t = [];
+  fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+key+"?apikey=Rllb6XmxXTg2cHO0LkOCZGazDzeC3qFM")
+    .then(response => response.json())
+    .then(data => {
+      t = data
+      document.getElementById('temperture').innerHTML = t.DailyForecasts[0].Temperature.Maximum.Value;
+      document.getElementById('day1Temp').innerHTML = t.DailyForecasts[1].Temperature.Maximum.Value;
+      document.getElementById('day2Temp').innerHTML = t.DailyForecasts[2].Temperature.Maximum.Value;
+      document.getElementById('day3Temp').innerHTML = t.DailyForecasts[3].Temperature.Maximum.Value;
+      document.getElementById('day4Temp').innerHTML = t.DailyForecasts[4].Temperature.Maximum.Value;
+      fehrenheitTemps = [t.DailyForecasts[0].Temperature.Maximum.Value,t.DailyForecasts[1].Temperature.Maximum.Value,t.DailyForecasts[2].Temperature.Maximum.Value,t.DailyForecasts[3].Temperature.Maximum.Value,t.DailyForecasts[4].Temperature.Maximum.Value];
+      for(i=0 ; i<fehrenheitTemps.length ; i++){
+        celciusTemps[i] = Math.round((fehrenheitTemps[i]-32)*(5/9));
+      }
+    });
+}
+function changeCity(city,key) {
   if(city != currentCity){
     currentCity = city; 
     document.getElementById('cityName').innerHTML = city;
     centerItems();
+    getTemperature(key);
   }
   
   let favCity = false;
@@ -150,9 +182,15 @@ function autocomplete(inp) {
             b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
             b.addEventListener("click", function(e) {
+                let key = "";
+                for(i=0 ; i<y.length ; i++){
+                  if(inp.value == y[i].LocalizedName) {
+                    key = parseInt(y[i].Key);
+                  }
+                }
                 /*insert the value for the autocomplete text field:*/
                 inp.value = this.getElementsByTagName("input")[0].value;
-                changeCity(document.getElementById('searchCities').value);
+                changeCity(document.getElementById('searchCities').value,key);
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
                 closeAllLists();

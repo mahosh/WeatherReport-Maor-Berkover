@@ -66,8 +66,10 @@ h1 {display: inline-block;margin-left: 5%;}
   #addToFavorites img{width: 50px;height: auto;}
   #cityBlock {position: absolute;top: 60px;}
   #cityName{text-align: center;font-size: 90px;margin: 0;}
-  #temperture {text-align: center;font-size: 35px;margin: 10px 0 20px 0;}
+  #tempContainer {text-align: center;font-size: 35px;margin: 10px 0 20px 0;}
+  #temperture{display: inline-block;}
   #cityBlock span{font-size: 20px;}
+  #cityBlock div span{font-size: 35px;}
   #currentDate {float: right;}
   #weekReport {position: absolute;bottom: 20px;display: flex;
     justify-content: center;width: 100%;}
