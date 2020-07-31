@@ -4,7 +4,7 @@ function reboot() {
     createGallery(favKeys, favList)
 }
 
-function createGallery(keys, cities) {debugger;
+function createGallery(keys, cities) {
     for(i=0 ; i<keys.length ; i++){
         let y = [];
         let icon;
