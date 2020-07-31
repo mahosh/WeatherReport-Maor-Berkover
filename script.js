@@ -1,5 +1,6 @@
 let fehrenheit = true; 
 let favList = [];
+let favKeys = [];
 let currentCity = "Tel Aviv";
 let currentKey = 215854;
 const currentDate = new Date();
@@ -53,10 +54,12 @@ function favoritesButton(){
     document.getElementById('notAFavoriteCity').className = '';
     document.getElementById('aFavoriteCity').className = 'active';
     favList.push(currentCity);
+    favKeys.push(currentKey);
   } else {
     document.getElementById('notAFavoriteCity').className = 'active';
     document.getElementById('aFavoriteCity').className = '';
     favList.splice(favList.indexOf("currentCity"), 1);
+    favKeys.splice(favList.indexOf("currentCity"), 1);
   }
 }
 
@@ -123,6 +126,7 @@ function getTemperature(key){
 function changeCity(city,key) {
   if(city != currentCity){
     currentCity = city; 
+    currentKey = key;
     document.getElementById('cityName').innerHTML = city;
     centerItems();
     getTemperature(key);

@@ -1,0 +1,29 @@
+.showCelcius, .showFehrenheit {
+display: none;
+}
+.showCelcius.active, .showFehrenheit.active {
+display: inline;
+}
+#row1 {
+position: relative;
+}
+img {
+    width: 20px;
+}
+#header {
+    display: flex;
+}
+
+#pageSelection {
+    align-self: center;
+    display: inline-block;
+}
+
+
+#favGallery {
+    width: 85%;
+}
+.favItem {
+    margin: 10px 10px 10px 10px;
+    border: 1px solid black;
+}

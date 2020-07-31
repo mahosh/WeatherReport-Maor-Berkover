@@ -4,32 +4,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather app</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="FavPageCSS.css">
+        <script src="FavPageScript.js"></script>
     </head>
     <body>
-        <nav>HEADER
-            <h1></h1>
+        <nav>
             <div id="pageSelection" class="col-lg-2 col-md-3 col-sm-6">
                 <a id="mainPage"  href="index.html">
                     <img src="Home-icon.jpg">
                 </a>
-                <span id="fspanvoritesPage">
+                    <span id="fspanvoritesPage">
                     <img src="Favorites-icon.jpg">
                 </a>
             </div>
         </nav>
-        <main>MAIN CONTENT
-            <div id="searchBar">
-                <input id="searchCities" type="text" onClick="searchCity()">
-            </div>
+        <main>
             <div id="favoritesContainer">
-                <h2></h2>
-                
+                <h2 id="emptyMessage">You currently have no favorite cities</h2>
+                <div id="favGallery"></div>
             </div>
         </main>
-        <footer id="footer" class="col-sm-12 col-md-12 col-lg-12">FOOTER
-
-        </footer>   
     </body>
 </html>
