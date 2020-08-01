@@ -21,9 +21,41 @@ img {
 
 
 #favGallery {
-    width: 85%;
+    width: 75%;
+    margin: auto;
+
 }
-.favItem {
-    margin: 10px 10px 10px 10px;
+.gallrey-item {
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    margin: 15px 20px 25px 20px;
     border: 1px solid black;
+    position: relative;
 }
+
+.gallrey-item p.cityName,.gallrey-item p.type{
+    text-align: center;
+}
+.gallrey-item p.cityName{
+    font-size: 25px;
+}
+.gallrey-item p.type {
+    font-size: 17px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+.gallrey-item div.favIcon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.
+.gallrey-item p.temp{
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    font-size: 25px;
+}
+
