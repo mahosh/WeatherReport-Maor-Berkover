@@ -1,3 +1,25 @@
+body{
+    background-color: black;
+    color: white;
+}
+#header {
+    display: flex;
+}
+h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
+#pageSelection {
+    align-self: center;
+    display: inline-block;
+}
+#favPageHeadline {
+    text-align: center;
+}
+#emptyMessage{
+    display: block;
+    text-align: center;
+}
+#emptyMessage.hide {
+    display: none;
+}
 .showCelcius, .showFehrenheit {
 display: none;
 }
@@ -13,13 +35,6 @@ img {
 #header {
     display: flex;
 }
-
-#pageSelection {
-    align-self: center;
-    display: inline-block;
-}
-
-
 #favGallery {
     width: 75%;
     margin: auto;
@@ -51,11 +66,13 @@ img {
     top: 5px;
     right: 5px;
 }
-.
-.gallrey-item p.temp{
+.gallrey-item div.tempContainer{
     position: absolute;
     bottom: 0;
     left: 10px;
     font-size: 25px;
+}
+.gallrey-item p.temp{
+    display: inline-block;
 }
 

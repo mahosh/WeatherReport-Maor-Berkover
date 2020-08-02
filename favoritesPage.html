@@ -8,20 +8,24 @@
         <script src="FavPageScript.js"></script>
     </head>
     <body>
-        <nav>
-            <div id="pageSelection" class="col-lg-2 col-md-3 col-sm-6">
-                <a id="mainPage"  href="index.html">
+        <nav id="header" class="col-sm-12 col-md-12 col-lg-12">
+            <h1 class="col-lg-3 col-md-3 col-sm-3">Weather Application</h1>
+            <div id="pageSelection">
+                <span id="mainPage">
                     <img src="Home-icon.jpg">
-                </a>
-                    <span id="fspanvoritesPage">
+                </span>
+                <a id="favoritesPage" href="favoritesPage.html">
                     <img src="Favorites-icon.jpg">
                 </a>
             </div>
         </nav>
         <main>
-            <div id="favoritesContainer">
-                <h2 id="emptyMessage">You currently have no favorite cities</h2>
-                <div id="favGallery"></div>
+            <div id="content">
+                <h2 id="favPageHeadline">How is the weather in your favorite city today?</h2>
+                <div id="favoritesContainer">
+                    <h3 id="emptyMessage">You currently have no favorite cities</h2>
+                    <div id="favGallery"></div>
+                </div>
             </div>
         </main>
     </body>
