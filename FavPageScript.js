@@ -25,6 +25,7 @@ function checkFavItems() {
                     numOfFavs--;
                     if(numOfFavs == 0){
                         document.getElementById("emptyMessage").classList.remove("hide");
+                        document.getElementById("fehrenheitCelcius").classList.add("hide");
                         document.getElementById('favoritesContainer').removeEventListener('click', checkFavItems);
                     }
 
@@ -35,16 +36,46 @@ function checkFavItems() {
             
         }
 }
-
+function fehrenheitCelciusButton() {
+    if(document.getElementById('fehrenheitButton').className == 'active'){
+      document.getElementById('fehrenheitButton').className = 'disable';
+      document.getElementById('celciusButton').className = 'active';
+      document.getElementById('celciusButton').disabled = false;
+      document.getElementById('fehrenheitButton').disabled = true;
+      let x = document.getElementsByClassName('showCelcius');
+      let y = document.getElementsByClassName('showFehrenheit');
+      for(i=0 ; i<x.length ; i++) {
+        x[i].className = 'showCelcius';  
+      }
+      for(i=0 ; i<y.length ; i++) {
+        y[i].className = 'showFehrenheit active';  
+      }
+    } else {
+      document.getElementById('fehrenheitButton').className = 'active';
+      document.getElementById('celciusButton').className = 'disable';
+      document.getElementById('celciusButton').disabled = true;
+      document.getElementById('fehrenheitButton').disabled = false;
+      let x = document.getElementsByClassName('showCelcius');
+      let y = document.getElementsByClassName('showFehrenheit');
+      for(i=0 ; i<x.length ; i++) {
+        x[i].className = 'showCelcius active';  
+      }
+      for(i=0 ; i<y.length ; i++) {
+        y[i].className = 'showFehrenheit';  
+      }
+    }
+}
 function createGallery(keys, cities) {
     if(keys.length > 0){
         document.getElementById("emptyMessage").classList.add("hide");
+        document.getElementById("fehrenheitCelcius").classList.remove("hide");
     }
     for(i=0 ; i<keys.length ; i++){
         numOfFavs++;
         let y = [];
         let icon;
         let temp;
+        let celciusTemps;
         const g = document.getElementById('favGallery');
         
         const index = i; // have to put it in a const because the i will change before the promise will get its answer
@@ -54,6 +85,7 @@ function createGallery(keys, cities) {
             .then(y => {
                 icon = y[0].WeatherIcon;
                 temp = y[0].Temperature.Imperial.Value;
+                celciusTemps = Math.round((temp-32)*(5/9));
                 let a = document.createElement("DIV");  
                 a.innerHTML = "<p class='cityName'>" + cities[index] + "</p>";
                 a.setAttribute("data", cities[index])
@@ -73,7 +105,7 @@ function createGallery(keys, cities) {
                     a.innerHTML += "<p class='type'>Snowy</p>";
                     a.setAttribute("class", "gallrey-item snowy");
                 }
-                a.innerHTML += "<div class='tempContainer'><p class='temp'>" + temp + "</p><spanclass='showFehrenheit active'> °F</span><span class='showCelcius'> °C</span></div>";
+                a.innerHTML += "<div class='tempContainer'><p class='showFehrenheit active'>" + temp + " °F</p><p class='showCelcius'>" + celciusTemps + " °C</p></div>";
                 a.innerHTML += "<div class='favIcon' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'><img src='Assests/Icons/favoriteFullIcon.png'></div>";
                 g.appendChild(a);
             });

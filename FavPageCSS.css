@@ -20,6 +20,13 @@ h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
 #emptyMessage.hide {
     display: none;
 }
+#fehrenheitCelcius {
+    display: block;
+    text-align: left;
+}
+#fehrenheitCelcius.hide{
+    display: none;
+}
 .showCelcius, .showFehrenheit {
 display: none;
 }

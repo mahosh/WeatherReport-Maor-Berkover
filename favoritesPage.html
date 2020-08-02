@@ -23,6 +23,11 @@
             <div id="content">
                 <h2 id="favPageHeadline">How is the weather in your favorite city today?</h2>
                 <div id="favoritesContainer">
+                    <div id="fehrenheitCelcius" class="hide">
+                        <button id="celciusButton" class="active" onclick="fehrenheitCelciusButton()">°C</button>
+                        <span>|</span>
+                        <button id="fehrenheitButton"  onclick="fehrenheitCelciusButton()" disabled>°F</button>
+                    </div>
                     <h3 id="emptyMessage">You currently have no favorite cities</h2>
                     <div id="favGallery"></div>
                 </div>
