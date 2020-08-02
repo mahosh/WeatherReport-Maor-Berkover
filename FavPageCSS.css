@@ -1,17 +1,25 @@
 body{
     background-color: black;
     color: white;
+    margin: 0;
 }
 #header {
+    height: 250px;
+    background-color: grey;
     display: flex;
 }
-h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
+h1 {display: inline-block;margin-right: 60%;margin-left: 5%;align-self: center;}
 #pageSelection {
     align-self: center;
     display: inline-block;
 }
 #favPageHeadline {
+    margin-top: 70px;
+    text-decoration-line: underline;
     text-align: center;
+}
+#favoritesContainer {
+    margin-top: 70px;
 }
 #emptyMessage{
     display: block;
@@ -21,17 +29,37 @@ h1 {display: inline-block;margin-right: 60%;margin-left: 5%;}
     display: none;
 }
 #fehrenheitCelcius {
+    width: 75%;
+    margin: auto;
     display: block;
     text-align: left;
 }
 #fehrenheitCelcius.hide{
     display: none;
 }
+#celciusButton {
+    margin-left: 20px;
+}
 .showCelcius, .showFehrenheit {
 display: none;
 }
 .showCelcius.active, .showFehrenheit.active {
 display: inline;
+}
+.gallrey-item.sunny{
+    background-image: url(Assests/Backgrounds/SunnyBackground.jpg);
+}
+.gallrey-item.partiallyCloudy{
+    background-image: url(Assests/Backgrounds/PartiallyCloudyBackground.jpg);
+}
+.gallrey-item.cloudy{
+    background-image: url(Assests/Backgrounds/CloudyBackground.jpg);
+}
+.gallrey-item.rainy{
+    background-image: url(Assests/Backgrounds/RainyBackground.jpg);
+}
+.gallrey-item.snowy{
+    background-image: url(Assests/Backgrounds/SnowyBackground.jpg);
 }
 #row1 {
 position: relative;

@@ -28,12 +28,10 @@ function checkFavItems() {
                         document.getElementById("fehrenheitCelcius").classList.add("hide");
                         document.getElementById('favoritesContainer').removeEventListener('click', checkFavItems);
                     }
-
                 } else {
                     foundMatch = false;
                 }
             }
-            
         }
 }
 function fehrenheitCelciusButton() {
@@ -75,7 +73,7 @@ function createGallery(keys, cities) {
         let y = [];
         let icon;
         let temp;
-        let celciusTemps;
+        let celciusTemp;
         const g = document.getElementById('favGallery');
         
         const index = i; // have to put it in a const because the i will change before the promise will get its answer
@@ -85,7 +83,7 @@ function createGallery(keys, cities) {
             .then(y => {
                 icon = y[0].WeatherIcon;
                 temp = y[0].Temperature.Imperial.Value;
-                celciusTemps = Math.round((temp-32)*(5/9));
+                celciusTemp = Math.round((temp-32)*(5/9));
                 let a = document.createElement("DIV");  
                 a.innerHTML = "<p class='cityName'>" + cities[index] + "</p>";
                 a.setAttribute("data", cities[index])
@@ -105,7 +103,7 @@ function createGallery(keys, cities) {
                     a.innerHTML += "<p class='type'>Snowy</p>";
                     a.setAttribute("class", "gallrey-item snowy");
                 }
-                a.innerHTML += "<div class='tempContainer'><p class='showFehrenheit active'>" + temp + " °F</p><p class='showCelcius'>" + celciusTemps + " °C</p></div>";
+                a.innerHTML += "<div class='tempContainer'><p class='showFehrenheit active'>" + temp + " °F</p><p class='showCelcius'>" + celciusTemp + " °C</p></div>";
                 a.innerHTML += "<div class='favIcon' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'><img src='Assests/Icons/favoriteFullIcon.png'></div>";
                 g.appendChild(a);
             });
