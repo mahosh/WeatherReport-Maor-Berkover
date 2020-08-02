@@ -1,50 +1,71 @@
+@media screen and (max-width: 600px){
+    #header {height: 120px;background: url(Assests/Backgrounds/HeaderBackground.jpg);background-size: contain;display: flex;}
+    h1 {display: inline-block;margin-right: 45%;margin-left: 5%;align-self: center;background-color: black;font-size: 15px;}
+    #pageSelection {align-self: center;display: inline-block;}
+    #favPageHeadline {font-size: 17px;margin-top: 40px;text-decoration-line: underline;text-align: center;}
+    #favoritesContainer {margin-top: 50px;}
+    #emptyMessage{display: block;text-align: center;}
+    #emptyMessage.hide {display: none;}
+    #fehrenheitCelcius {width: 95%;margin: auto;display: block;text-align: left;}
+    #fehrenheitCelcius.hide{display: none;}
+    #celciusButton {margin-left: 10px;}
+    .gallrey-item {display: block;width: 100%;height: 150px;margin: 0px;position: relative;}
+    .gallrey-item p.cityName,.gallrey-item p.type{text-align: center;}
+    .gallrey-item p.cityName{font-size: 25px;}
+    .gallrey-item p.type {font-size: 17px;float: left;margin-left: 15px;margin-top: 10px;}
+    .gallrey-item div.favIcon {position: absolute;top: 5px;right: 5px;}
+    .gallrey-item div.tempContainer{position: absolute;bottom: 0;left: 10px;font-size: 25px;}
+    .gallrey-item p.temp{display: inline-block;}
+}
+@media screen and (max-width: 900px) and (min-width: 600px){
+    #header {height: 120px;background: url(Assests/Backgrounds/HeaderBackground.jpg);background-size: contain;display: flex;}
+    h1 {display: inline-block;margin-right: 45%;margin-left: 5%;align-self: center;background-color: black;font-size: 15px;}
+    #pageSelection {align-self: center;display: inline-block;}
+    #favPageHeadline {font-size: 17px;margin-top: 40px;text-decoration-line: underline;text-align: center;}
+    #favoritesContainer {margin-top: 50px;}
+    #emptyMessage{display: block;text-align: center;}
+    #emptyMessage.hide {display: none;}
+    #fehrenheitCelcius {width: 95%;margin: auto;display: block;text-align: left;}
+    #fehrenheitCelcius.hide{display: none;}
+    #celciusButton {margin-left: 10px;}
+    .gallrey-item {display: block;width: 100%;height: 150px;margin: 0px;position: relative;}
+    .gallrey-item p.cityName,.gallrey-item p.type{text-align: center;}
+    .gallrey-item p.cityName{font-size: 25px;}
+    .gallrey-item p.type {font-size: 17px;float: left;margin-left: 15px;margin-top: 10px;}
+    .gallrey-item div.favIcon {position: absolute;top: 5px;right: 5px;}
+    .gallrey-item div.tempContainer{position: absolute;bottom: 0;left: 10px;font-size: 25px;}
+    .gallrey-item p.temp{display: inline-block;}
+}
+@media screen and (min-width: 900px) {
+    #header {height: 250px;background: url(Assests/Backgrounds/HeaderBackground.jpg);background-size: contain;display: flex;}
+    h1 {display: inline-block;margin-right: 60%;margin-left: 5%;align-self: center;background-color: black;}
+    #pageSelection {align-self: center;display: inline-block;}
+    #favPageHeadline {margin-top: 70px;text-decoration-line: underline;text-align: center;}
+    #favoritesContainer {margin-top: 70px;}
+    #emptyMessage{display: block;text-align: center;}
+    #emptyMessage.hide {display: none;}
+    #fehrenheitCelcius {width: 75%;margin: auto;display: block;text-align: left;}
+    #fehrenheitCelcius.hide{display: none;}
+    #celciusButton {margin-left: 20px;}
+    #favGallery {width: 75%;margin: auto;}
+    .gallrey-item {display: inline-block;width: 200px;height: 300px;margin: 15px 20px 25px 20px;position: relative;}
+    .gallrey-item p.cityName,.gallrey-item p.type{text-align: center;}
+    .gallrey-item p.cityName{font-size: 25px;}
+    .gallrey-item p.type {font-size: 17px;float: left;margin-left: 15px;margin-top: 40px;}
+    .gallrey-item div.favIcon {position: absolute;top: 5px;right: 5px;}
+    .gallrey-item div.tempContainer{position: absolute;bottom: 0;left: 10px;font-size: 25px;}
+    .gallrey-item p.temp{display: inline-block;}
+}
 body{
     background-color: black;
     color: white;
     margin: 0;
 }
-#header {
-    height: 250px;
-    background-color: grey;
-    display: flex;
-}
-h1 {display: inline-block;margin-right: 60%;margin-left: 5%;align-self: center;}
-#pageSelection {
-    align-self: center;
-    display: inline-block;
-}
-#favPageHeadline {
-    margin-top: 70px;
-    text-decoration-line: underline;
-    text-align: center;
-}
-#favoritesContainer {
-    margin-top: 70px;
-}
-#emptyMessage{
-    display: block;
-    text-align: center;
-}
-#emptyMessage.hide {
-    display: none;
-}
-#fehrenheitCelcius {
-    width: 75%;
-    margin: auto;
-    display: block;
-    text-align: left;
-}
-#fehrenheitCelcius.hide{
-    display: none;
-}
-#celciusButton {
-    margin-left: 20px;
-}
 .showCelcius, .showFehrenheit {
-display: none;
+    display: none;
 }
 .showCelcius.active, .showFehrenheit.active {
-display: inline;
+    display: inline;
 }
 .gallrey-item.sunny{
     background-image: url(Assests/Backgrounds/SunnyBackground.jpg);
@@ -61,53 +82,6 @@ display: inline;
 .gallrey-item.snowy{
     background-image: url(Assests/Backgrounds/SnowyBackground.jpg);
 }
-#row1 {
-position: relative;
-}
 img {
     width: 20px;
 }
-#header {
-    display: flex;
-}
-#favGallery {
-    width: 75%;
-    margin: auto;
-
-}
-.gallrey-item {
-    display: inline-block;
-    width: 200px;
-    height: 300px;
-    margin: 15px 20px 25px 20px;
-    border: 1px solid black;
-    position: relative;
-}
-
-.gallrey-item p.cityName,.gallrey-item p.type{
-    text-align: center;
-}
-.gallrey-item p.cityName{
-    font-size: 25px;
-}
-.gallrey-item p.type {
-    font-size: 17px;
-    float: left;
-    margin-left: 15px;
-    margin-top: 40px;
-}
-.gallrey-item div.favIcon {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-.gallrey-item div.tempContainer{
-    position: absolute;
-    bottom: 0;
-    left: 10px;
-    font-size: 25px;
-}
-.gallrey-item p.temp{
-    display: inline-block;
-}
-

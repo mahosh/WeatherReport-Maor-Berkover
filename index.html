@@ -10,7 +10,7 @@
     </head>
     <body class="snowy" onload="reboot()">
         <nav id="header" class="col-sm-12 col-md-12 col-lg-12">
-            <h1 class="col-lg-3 col-md-3 col-sm-3">Weather Application</h1>
+            <h1 class="col-lg-3 col-md-3 col-sm-5">Weather Application</h1>
             <div id="pageSelection">
                 <span id="mainPage">
                     <img src="Home-icon.jpg">
@@ -27,7 +27,7 @@
                 </div> 
             </form>
             <div id="weatherReport" class="col-sm-12 col-md-12 col-lg-12">
-                <div id="row1" class="weatherRow">
+                <div id="row1" class="weatherRow day">
                     <div id="fehrenheitCelcius">
                         <button id="celciusButton" class="active" onclick="fehrenheitCelciusButton()">°C</button>
                         <span>|</span>
@@ -49,32 +49,36 @@
                     </div>
                     <div id="weekReport">
                         <div id="day1" class="day">
-                            <p id="dateOfDay1" class="dayOfTheWeek">Day</p>
+                            <p id="day1name" class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay1" class="date">Date</p>
                             <p id="day1Temp" class="tempertureOfDay"></p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/Sunny.png"></p>
+                            <p class="typeImage"><img src=""></p>
                         </div>
                         <div id="day2" class="day">
-                            <p id="dateOfDay2" class="dayOfTheWeek">Day</p>
+                            <p id="day2name" class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay2" class="date">Date</p>
                             <p id="day2Temp" class="tempertureOfDay"></p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/PartialyCloudy.png"></p>
+                            <p class="typeImage"><img src=""></p>
                         </div>
                         <div id="day3" class="day">
-                            <p id="dateOfDay3" class="dayOfTheWeek">Day</p>
+                            <p id="day3name" class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay3" class="date">Date</p>
                             <p id="day3Temp" class="tempertureOfDay"></p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/Cloudy.png"></p>
+                            <p class="typeImage"><img src=""></p>
                         </div>
                         <div id="day4" class="day">
-                            <p id="dateOfDay4" class="dayOfTheWeek">Day</p>
+                            <p id="day4name" class="dayOfTheWeek">Day</p>
+                            <p id="dateOfDay4" class="date">Date</p>
                             <p id="day4Temp" class="tempertureOfDay"></p>
                             <span class="showFehrenheit active">°F</span>
                             <span class="showCelcius">°C</span>
-                            <p><img src="Assests/Icons/Rain.png"></p>
+                            <p class="typeImage"><img src=""></p>
                         </div>
                     </div>
                 </div>

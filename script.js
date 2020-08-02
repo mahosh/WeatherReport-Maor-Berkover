@@ -6,7 +6,7 @@ let currentKey = 215854;
 const currentDate = new Date();
 let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-const today = weekDays[currentDate.getDay()];
+let today = weekDays[currentDate.getDay()];
 
 function reboot() {
   // setting a new session
@@ -15,13 +15,21 @@ function reboot() {
   document.getElementById('currentDate').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
   document.getElementById('currentDay').innerHTML = today;
   currentDate.setDate(currentDate.getDate() + 1);
+  today = weekDays[currentDate.getDay()];
   document.getElementById('dateOfDay1').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  document.getElementById('day1name').innerHTML = today;
   currentDate.setDate(currentDate.getDate() + 1);
+  today = weekDays[currentDate.getDay()];
   document.getElementById('dateOfDay2').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  document.getElementById('day2name').innerHTML = today;
   currentDate.setDate(currentDate.getDate() + 1);
+  today = weekDays[currentDate.getDay()];
   document.getElementById('dateOfDay3').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  document.getElementById('day3name').innerHTML = today;
   currentDate.setDate(currentDate.getDate() + 1);
+  today = weekDays[currentDate.getDay()];
   document.getElementById('dateOfDay4').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
+  document.getElementById('day4name').innerHTML = today;
   //setting the city and favorite list if it's not the first run of the user
   if(window.localStorage.currentCity) {
     currentCity = window.localStorage.currentCity;
@@ -112,11 +120,31 @@ function getTemperature(key){
     .then(response => response.json())
     .then(data => {
       t = data
+      let icon = 0;
       document.getElementById('temperture').innerHTML = t.DailyForecasts[0].Temperature.Maximum.Value;
       document.getElementById('day1Temp').innerHTML = t.DailyForecasts[1].Temperature.Maximum.Value;
       document.getElementById('day2Temp').innerHTML = t.DailyForecasts[2].Temperature.Maximum.Value;
       document.getElementById('day3Temp').innerHTML = t.DailyForecasts[3].Temperature.Maximum.Value;
       document.getElementById('day4Temp').innerHTML = t.DailyForecasts[4].Temperature.Maximum.Value;
+      let x = document.getElementsByClassName("day");
+      for(i=0 ; i<x.length ; i++){
+        icon = t.DailyForecasts[i].Day.Icon;
+        if(icon < 4 || icon == 5) {
+          x[i].className += " sunny";
+        } else if (icon == 4 || icon == 6 || icon == 20 || icon == 21){
+          x[i].className += " partiallyCloudy";
+        } else if((icon > 6 && icon < 12) || icon == 19) {
+          x[i].className += " cloudy";
+        } else if(icon > 11 && icon < 19) {
+          x[i].className += " rainy";
+        } else {
+          x[i].className += " snowy";
+        }
+      }
+
+    
+
+      
       fehrenheitTemps = [t.DailyForecasts[0].Temperature.Maximum.Value,t.DailyForecasts[1].Temperature.Maximum.Value,t.DailyForecasts[2].Temperature.Maximum.Value,t.DailyForecasts[3].Temperature.Maximum.Value,t.DailyForecasts[4].Temperature.Maximum.Value];
       for(i=0 ; i<fehrenheitTemps.length ; i++){
         celciusTemps[i] = Math.round((fehrenheitTemps[i]-32)*(5/9));

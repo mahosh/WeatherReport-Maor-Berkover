@@ -1,5 +1,5 @@
-let favKeys = [215854];
-let favList = ["Tel Aviv"];
+let favKeys = [215854,60449,107487,178087,127164];
+let favList = ["Tel Aviv","Santiago","Bogota","Berlin","Cairo"];
 let numOfFavs = 0;
 function reboot() {
     createGallery(favKeys, favList);
