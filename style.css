@@ -18,11 +18,11 @@
   main > form{margin-top:25px;}
   #searchBar {margin-left: auto;margin: 20px;}
   #searchCities {border-radius: 50px;width: 75%;}
-  #searchBar *{display: inline-block;}
+  #searchBar *{display: inline-block; color: black;}
   #row1 {height: 600px;margin-top: 30px;position: relative;}
-  #fehrenheitCelcius {width: 85px; height: 15px; position: absolute;left: 30px; top: 0px;}
+  #fehrenheitCelcius {width: 85px; height: 15px; position: absolute;left: 30px; top: 10px;}
   #fehrenheitCelcius button {background: black;color: white;}
-  #addToFavorites {position: absolute;right: 30px;top: 0px;}
+  #addToFavorites {position: absolute;right: 30px;top: 10px;}
   #addToFavorites img{width: 40px;height: auto;}
   #cityBlock {padding-top: 50px;}
   #cityName{text-align: center;font-size: 40px;margin: 0;}

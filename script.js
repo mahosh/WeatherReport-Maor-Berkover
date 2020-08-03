@@ -9,9 +9,9 @@ let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
 let today = weekDays[currentDate.getDay()];
 
 function reboot() {
-  // setting a new session
+  /* setting a new session*/
   centerItems();
-  //setting the dates in all relevant places
+  /*setting the dates and names in all relevant places*/
   document.getElementById('currentDate').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
   document.getElementById('currentDay').innerHTML = today;
   currentDate.setDate(currentDate.getDate() + 1);
@@ -31,27 +31,33 @@ function reboot() {
   document.getElementById('dateOfDay4').innerHTML = currentDate.getDate()+'-'+(currentDate.getMonth()+1)+'-'+currentDate.getFullYear();
   document.getElementById('day4name').innerHTML = today;
   //setting the city and favorite list if it's not the first run of the user
-  if(window.localStorage.currentCity) {
-    currentCity = window.localStorage.currentCity;
-    document.getElementById('cityName').innerHTML = window.localStorage.currentCity;
+  if(window.location.search) {
+    /*the only time the current city won't start with Tel Aviv, is when the user will click on a city in his favorite gallery
+    in that case, the url will be in this format: ...index.com/?key=215854&city="Tel Aviv"*/
+    let x = window.location.search.split('=');
+    currentCity = x[2];
+    document.getElementById('cityName').innerHTML = currentCity;
+    currentKey = x[1].split('&')[0];
   }
   if(window.localStorage.favoriteCities){
     favList = JSON.parse(window.localStorage.getItem("favoriteCities"));
-    if(window.localStorage.currentCity){
-      for(i = 0 ; i<favList.length ; i++){
-        if(favList[i] == window.localStorage.currentCity){
-          i=favList.length;
-          document.getElementById('notAFavoriteCity').className = '';
-          document.getElementById('aFavoriteCity').className = 'active';
-        }
+    favKeys = JSON.parse(window.localStorage.getItem("favoriteKeys"));
+    for(i = 0 ; i<favList.length ; i++){
+      if(favList[i] == currentCity){
+        document.getElementById('notAFavoriteCity').className = '';
+        document.getElementById('aFavoriteCity').className = 'active';
       }
     }
+  } else {
+    localStorage.setItem("favoriteCities", JSON.stringify(favList));
+    localStorage.setItem("favoriteKeys", JSON.stringify(favKeys));
   }
-  //running the 
+  /*running the searchbar autocomplete function and the initial temperature of the chosen city*/
   autocomplete(document.getElementById('searchCities'));
   getTemperature(currentKey);
 }
 function centerItems(){
+  /*this function center the searchbar and the city name according to their and the page's width*/
   let leftPositionOfSearchBar = (document.body.clientWidth - document.getElementById('searchBar').offsetWidth)/2;
   document.getElementById('searchBar').style.left=leftPositionOfSearchBar +"px";
   let leftPositionOfCityName = (document.getElementById('row1').offsetWidth - document.getElementById('cityName').offsetWidth)/2;
@@ -63,58 +69,64 @@ function favoritesButton(){
     document.getElementById('aFavoriteCity').className = 'active';
     favList.push(currentCity);
     favKeys.push(currentKey);
+    localStorage.setItem("favoriteCities", JSON.stringify(favList));
+    localStorage.setItem("favoriteKeys", JSON.stringify(favKeys));
   } else {
     document.getElementById('notAFavoriteCity').className = 'active';
     document.getElementById('aFavoriteCity').className = '';
     favList.splice(favList.indexOf("currentCity"), 1);
     favKeys.splice(favList.indexOf("currentCity"), 1);
+    localStorage.setItem("favoriteCities", JSON.stringify(favList));
+    localStorage.setItem("favoriteKeys", JSON.stringify(favKeys));
   }
 }
 
 function fehrenheitCelciusButton() {
-    if(document.getElementById('fehrenheitButton').className == 'active'){
-      document.getElementById('fehrenheitButton').className = 'disable';
-      document.getElementById('celciusButton').className = 'active';
-      document.getElementById('celciusButton').disabled = false;
-      document.getElementById('fehrenheitButton').disabled = true;
-      let x = document.getElementsByClassName('showCelcius');
-      let y = document.getElementsByClassName('showFehrenheit');
-      for(i=0 ; i<x.length ; i++) {
-        x[i].className = 'showCelcius';  
-      }
-      for(i=0 ; i<y.length ; i++) {
-        y[i].className = 'showFehrenheit active';  
-      }
-      document.getElementById('temperture').innerHTML = fehrenheitTemps[0];
-      document.getElementById('day1Temp').innerHTML = fehrenheitTemps[1];
-      document.getElementById('day2Temp').innerHTML = fehrenheitTemps[2];
-      document.getElementById('day3Temp').innerHTML = fehrenheitTemps[3];
-      document.getElementById('day4Temp').innerHTML = fehrenheitTemps[4];
-    } else {
-      document.getElementById('fehrenheitButton').className = 'active';
-      document.getElementById('celciusButton').className = 'disable';
-      document.getElementById('celciusButton').disabled = true;
-      document.getElementById('fehrenheitButton').disabled = false;
-      let x = document.getElementsByClassName('showCelcius');
-      let y = document.getElementsByClassName('showFehrenheit');
-      for(i=0 ; i<x.length ; i++) {
-        x[i].className = 'showCelcius active';  
-      }
-      for(i=0 ; i<y.length ; i++) {
-        y[i].className = 'showFehrenheit';  
-      }
-      document.getElementById('temperture').innerHTML = celciusTemps[0];
-      document.getElementById('day1Temp').innerHTML = celciusTemps[1];
-      document.getElementById('day2Temp').innerHTML = celciusTemps[2];
-      document.getElementById('day3Temp').innerHTML = celciusTemps[3];
-      document.getElementById('day4Temp').innerHTML = celciusTemps[4];
+  /*this function converts fehrenheit to celcius and the other way around*/
+  if(document.getElementById('fehrenheitButton').className == 'active'){
+    document.getElementById('fehrenheitButton').className = 'disable';
+    document.getElementById('celciusButton').className = 'active';
+    document.getElementById('celciusButton').disabled = false;
+    document.getElementById('fehrenheitButton').disabled = true;
+    let x = document.getElementsByClassName('showCelcius');
+    let y = document.getElementsByClassName('showFehrenheit');
+    for(i=0 ; i<x.length ; i++) {
+      x[i].className = 'showCelcius';  
     }
+    for(i=0 ; i<y.length ; i++) {
+      y[i].className = 'showFehrenheit active';  
+    }
+    document.getElementById('temperture').innerHTML = fehrenheitTemps[0];
+    document.getElementById('day1Temp').innerHTML = fehrenheitTemps[1];
+    document.getElementById('day2Temp').innerHTML = fehrenheitTemps[2];
+    document.getElementById('day3Temp').innerHTML = fehrenheitTemps[3];
+    document.getElementById('day4Temp').innerHTML = fehrenheitTemps[4];
+  } else {
+    document.getElementById('fehrenheitButton').className = 'active';
+    document.getElementById('celciusButton').className = 'disable';
+    document.getElementById('celciusButton').disabled = true;
+    document.getElementById('fehrenheitButton').disabled = false;
+    let x = document.getElementsByClassName('showCelcius');
+    let y = document.getElementsByClassName('showFehrenheit');
+    for(i=0 ; i<x.length ; i++) {
+      x[i].className = 'showCelcius active';  
+    }
+    for(i=0 ; i<y.length ; i++) {
+      y[i].className = 'showFehrenheit';  
+    }
+    document.getElementById('temperture').innerHTML = celciusTemps[0];
+    document.getElementById('day1Temp').innerHTML = celciusTemps[1];
+    document.getElementById('day2Temp').innerHTML = celciusTemps[2];
+    document.getElementById('day3Temp').innerHTML = celciusTemps[3];
+    document.getElementById('day4Temp').innerHTML = celciusTemps[4];
+  }
 }
-
+/*I'm keeping those out of a function becuase I'm using them both in the temperature setup and for the fehrenheit to celcius conversion*/
 let fehrenheitTemps = [];
 let celciusTemps = [];
 
 function getTemperature(key){
+  /*this function sends a call for 5 days forecast and sets the temperature of each day with the chosen temperature type*/
   let t = [];
   fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+key+"?apikey=Rllb6XmxXTg2cHO0LkOCZGazDzeC3qFM")
     .then(response => response.json())
@@ -128,6 +140,7 @@ function getTemperature(key){
       document.getElementById('day4Temp').innerHTML = t.DailyForecasts[4].Temperature.Maximum.Value;
       let x = document.getElementsByClassName("day");
       for(i=0 ; i<x.length ; i++){
+        /*thisr loop will determin what kind of weather belongs to each day. I decided to cut it to 5 types in order to shorten the code*/
         icon = t.DailyForecasts[i].Day.Icon;
         if(icon < 4 || icon == 5) {
           x[i].className += " sunny";
@@ -141,10 +154,6 @@ function getTemperature(key){
           x[i].className += " snowy";
         }
       }
-
-    
-
-      
       fehrenheitTemps = [t.DailyForecasts[0].Temperature.Maximum.Value,t.DailyForecasts[1].Temperature.Maximum.Value,t.DailyForecasts[2].Temperature.Maximum.Value,t.DailyForecasts[3].Temperature.Maximum.Value,t.DailyForecasts[4].Temperature.Maximum.Value];
       for(i=0 ; i<fehrenheitTemps.length ; i++){
         celciusTemps[i] = Math.round((fehrenheitTemps[i]-32)*(5/9));
@@ -152,37 +161,40 @@ function getTemperature(key){
     });
 }
 function changeCity(city,key) {
+  /*this function is in charge of changing the city if a different one was selected in the search bar*/
   if(city != currentCity){
     currentCity = city; 
     currentKey = key;
     document.getElementById('cityName').innerHTML = city;
     centerItems();
     getTemperature(key);
-  }
   
-  let favCity = false;
-  for(i=0 ; i<favList.length ; i++){
-    if (city == favList[i]){
-      document.getElementById('notAFavoriteCity').className = '';
-      document.getElementById('aFavoriteCity').className = 'active';
-      favCity = true;
+    /*checking if the new city is in the favorite list*/
+    let favCity = false;
+    for(i=0 ; i<favList.length ; i++){
+      if (city == favList[i]){
+        document.getElementById('notAFavoriteCity').className = '';
+        document.getElementById('aFavoriteCity').className = 'active';
+        favCity = true;
+      }
     }
-  }
-  if (!favCity) {
-    document.getElementById('notAFavoriteCity').className = 'active';
-    document.getElementById('aFavoriteCity').className = '';
+    /*setting the correct favorite icon*/
+    if (!favCity) {
+      document.getElementById('notAFavoriteCity').className = 'active';
+      document.getElementById('aFavoriteCity').className = '';
+    }
   }
 }
 
 function autocomplete(inp) {
-  /*the autocomplete function takes two arguments,
-  the text field element and an array of possible autocompleted values:
+  /*the autocomplete function takes the text field element:
   it's being called from the onload of the body*/
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
   inp.addEventListener("input", function(e) {
     const val = this.value;
     let y = [];
+    /*I build an array of possible autocompleted values*/
     fetch("http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=Rllb6XmxXTg2cHO0LkOCZGazDzeC3qFM&q="+val)
       .then(response => response.json())
       .then(data => {
@@ -215,13 +227,14 @@ function autocomplete(inp) {
             /*execute a function when someone clicks on the item value (DIV element):*/
             b.addEventListener("click", function(e) {
                 let key = "";
+                
+                /*insert the value for the autocomplete text field:*/
+                inp.value = this.getElementsByTagName("input")[0].value;
                 for(i=0 ; i<y.length ; i++){
                   if(inp.value == y[i].LocalizedName) {
                     key = parseInt(y[i].Key);
                   }
                 }
-                /*insert the value for the autocomplete text field:*/
-                inp.value = this.getElementsByTagName("input")[0].value;
                 changeCity(document.getElementById('searchCities').value,key);
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/

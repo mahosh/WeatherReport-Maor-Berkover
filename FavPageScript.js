@@ -1,7 +1,11 @@
-let favKeys = [215854,60449,107487,178087,127164];
-let favList = ["Tel Aviv","Santiago","Bogota","Berlin","Cairo"];
+let favKeys = [];
+let favList = [];
 let numOfFavs = 0;
 function reboot() {
+    if(window.localStorage.favoriteCities){
+        favList = JSON.parse(window.localStorage.getItem("favoriteCities"));
+        favKeys = JSON.parse(window.localStorage.getItem("favoriteKeys"));
+    }
     createGallery(favKeys, favList);
     document.getElementById('favoritesContainer').addEventListener('click', checkFavItems);
 }
@@ -22,6 +26,8 @@ function checkFavItems() {
                 if(!foundMatch){
                     favList.splice(i, 1);
                     favKeys.splice(i, 1);
+                    localStorage.setItem("favoriteCities", JSON.stringify(favList));
+                    localStorage.setItem("favoriteKeys", JSON.stringify(favKeys));
                     numOfFavs--;
                     if(numOfFavs == 0){
                         document.getElementById("emptyMessage").classList.remove("hide");
@@ -85,7 +91,7 @@ function createGallery(keys, cities) {
                 temp = y[0].Temperature.Imperial.Value;
                 celciusTemp = Math.round((temp-32)*(5/9));
                 let a = document.createElement("DIV");  
-                a.innerHTML = "<p class='cityName'>" + cities[index] + "</p>";
+                a.innerHTML = "<a href='index.html?key="+ keys[index] +"&city="+ cities[index] +"'><p class='cityName'>" + cities[index] + "</p></a>";
                 a.setAttribute("data", cities[index])
                 if(icon < 4 || icon == 5) {
                     a.innerHTML += "<p class='type'>Sunny</p>";
