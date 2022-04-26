@@ -128,7 +128,7 @@ let celciusTemps = [];
 function getTemperature(key){
   /*this function sends a call for 5 days forecast and sets the temperature of each day with the chosen temperature type*/
   let t = [];
-  fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+key+"?apikey=Rllb6XmxXTg2cHO0LkOCZGazDzeC3qFM")
+  fetch("https://dataservice.accuweather.com/forecasts/v1/daily/5day/"+key+"?apikey=Rllb6XmxXTg2cHO0LkOCZGazDzeC3qFM")
     .then(response => response.json())
     .then(data => {
       t = data
